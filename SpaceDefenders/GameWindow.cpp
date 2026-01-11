@@ -36,7 +36,7 @@ void GameWindow::paintEvent(QPaintEvent*) {
     QVector<QPointF> pts = {p1,p2,p3};
     p.setBrush(Qt::white);
     p.drawPolygon(pts);
-
+    //...
     // draw bullets
     for (auto &b : m_bullets) {
         p.drawRect(QRectF(b.pos.x()-2, b.pos.y()-4, 4, 8));
