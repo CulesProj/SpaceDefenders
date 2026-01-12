@@ -24,3 +24,11 @@ void Player::draw(QPainter &p, double windowHeight) const
     p.setBrush(Qt::white);
     p.drawRect(r);
 }
+
+QPointF Player::muzzlePosition(double windowHeight) const
+{
+    double cx = m_x + m_w * 0.5;
+    double topY = windowHeight - 40.0 - m_h; // same top used when drawing
+    // spawn just above the player's top
+    return QPointF(cx, topY - 2.0);
+}
