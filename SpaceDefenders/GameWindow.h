@@ -3,8 +3,10 @@
 #include <QWidget>
 #include <QTimer>
 #include <QElapsedTimer>
+#include <vector>
 #include "Player.h"
 #include "Projectile.h"
+#include "EnemyManager.h"    // NEW
 
 class GameWindow : public QWidget {
     Q_OBJECT
@@ -38,4 +40,9 @@ private:
     // shooting cooldown (seconds)
     const double m_shotCooldownSeconds = 0.25;
     double m_timeSinceLastShot{0.0}; // seconds
+
+    // NEW: enemy manager, score, lives
+    EnemyManager m_enemyManager;
+    int m_score{0};
+    int m_lives{3};
 };

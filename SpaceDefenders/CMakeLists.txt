@@ -25,6 +25,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         GameWindow.h GameWindow.cpp
         Player.h Player.cpp
         Projectile.h Projectile.cpp
+        Enemy.h Enemy.cpp
+        EnemyManager.h EnemyManager.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SpaceDefenders APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
