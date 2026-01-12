@@ -21,6 +21,8 @@ public:
     void setSize(double w, double h) { m_w = w; m_h = h; }
     void setSpeed(double s) { m_speed = s; }
 
+    QPointF muzzlePosition(double windowHeight) const;
+
 private:
     double m_x;
     double m_w;

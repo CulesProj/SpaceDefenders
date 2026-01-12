@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QElapsedTimer>
 #include "Player.h"
+#include "Projectile.h"
 
 class GameWindow : public QWidget {
     Q_OBJECT
@@ -15,11 +16,14 @@ protected:
     void paintEvent(QPaintEvent *ev) override;
     void keyPressEvent(QKeyEvent *ev) override;
     void keyReleaseEvent(QKeyEvent *ev) override;
+    void mousePressEvent(QMouseEvent *ev) override;
 
 private slots:
     void onLoop();
 
 private:
+    void tryShoot();
+
     QTimer m_timer;
     QElapsedTimer m_elapsed;
     Player m_player;
@@ -27,4 +31,11 @@ private:
     // input state
     bool m_leftDown{false};
     bool m_rightDown{false};
+    bool m_spaceShoot{false};
+
+    std::vector<Projectile> m_projectiles;
+
+    // shooting cooldown (seconds)
+    const double m_shotCooldownSeconds = 0.25;
+    double m_timeSinceLastShot{0.0}; // seconds
 };
